@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>自定义菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+            width: 100%;
+            height: 100%;
+        }
+        li:hover {
+            background: red;
+            color: #fff;
+        }
+        .menu {
+            border: 1px solid #d3d3d3;
+            display: none;
+            position: absolute;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    var menu = document.createElement("div"); 
+    var body = document.getElementsByTagName("body")[0];
+    menu.className = "menu";
+    body.appendChild(menu);
+    window.oncontextmenu = function(event) {
+        var left = event.clientX,
+            top = event.clientY,
+            screenH = window.screen.height,
+            screenW = window.screen.width,
+            WIDTH = 202,
+            HEIGHT = 202,
+            content = "";
+        menu.style.width = 200 + "px";
+        menu.style.height = 200 + "px";
+        content = "<ul><li>Menu Item 1</li><li>Menu Item 2</li></ul>";
+        menu.innerHTML = content;
+        if (screenW - left >= WIDTH && screenH - top >= 330) { // 按理说也是202 但是要330才符合条件 不懂
+            menu.style.top = top + "px";
+            menu.style.left = left + "px";
+        } else if (screenW - left < WIDTH && screenH - top >= 330) {
+            menu.style.top = top + "px";
+            menu.style.left = (left - WIDTH) + "px";           
+        } else if (screenW - left >= WIDTH && screenH - top < HEIGHT) {
+            menu.style.top = (top - HEIGHT) + "px";
+            menu.style.left = left + "px";
+        } else {
+            menu.style.top = (top - HEIGHT) + "px";
+            menu.style.left = (left - WIDTH) + "px";
+        }
+        menu.style.display = "block";
+        return false;
+    }
+    
+    window.onmousedown = function(event) {
+        menu.style.display = "none";
+    }
+</script>
+</body>
+</html>
