@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>自定义checkbox， radio样式</title>
+    <style>
+    input[type="radio"],
+    input[type="checkbox"]{
+        position: absolute;
+        left: -9999px;
+    }
+    #labrad {
+        position: relative;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        border: 1px solid #d3d3d3;
+        border-radius: 50%;
+    }
+    #rad:checked~#labrad {
+        border: 1px solid orange;
+    }
+    #rad:checked~#labrad::after {
+        display: block;
+    }
+    #check:checked~#labche {
+        border: 1px solid orange;
+    }
+    #check:checked~#labche::after {
+        display: block;
+    }
+    #labrad::after {
+        content: "";
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 8px;
+        height: 8px;
+        display: none;
+        background: orange;
+        border-radius: 50%;
+    }
+    #labche {
+        position: relative;
+        left: 30px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        border: 1px solid #d3d3d3;
+    }
+    #labche::after {
+        content: "✔";
+        position: absolute;
+        color: orange;
+        top: -2px;
+        left: 2px;
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <input type="radio" id="rad">
+    <label for="rad" id="labrad">
+    <input type="checkbox" id="check">
+    <label for="check" id="labche">
+</body>
+</html>
