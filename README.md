@@ -6,3 +6,5 @@ http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/maste
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/normal/customMenu.html<br>
 3:正则表达式入门<br>
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/normal/re.html<br>
+4:网页抓取分析服务系列之一（基础分析）<br>
+http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/normal/datagrab1.html<br>
