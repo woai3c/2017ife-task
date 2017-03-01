@@ -41,7 +41,8 @@ foo  barbar bar   // false
 完成任务之后，可以对比别人的实现方案，但不建议未尝试就直接搜索答案  
 在正则表达式的世界中，一个问题往往不止一种方案，可以尝试多种方法  
 
-4 任务目的<br>
+4 网页抓取分析服务系列之一（基础分析）<br>
+任务目的<br>
 体会数据的封装<br>
 快速学习新工具的的能力<br>
 熟悉phantomjs的基础用法<br>
@@ -68,3 +69,17 @@ foo  barbar bar   // false
 多查API，学以致用<br>
 对于抓取的异常情况及时捕获并处理<br>
 结果中非自然结果的部分抛弃掉（广告、阿拉丁等），提前人工查看一下搜索结果，大多信息格式一致的都是自然结果，观察自然结果的class和相关结构特征。<br>
+
+5 网页抓取分析服务系列之二（设备模拟）<br>
+任务目的<br>
+学会分析并借鉴其他工具的运行机制<br>
+学习更多phatomJS的配置<br>
+任务描述<br>
+观察chrome开发者工具中device toolbar，切换到不同的device，查看浏览器BOM数据有何变化<br>
+把device toolbar中不同的device名对应的ua和尺寸信息记录下来，保存为配置文件<br>
+在任务1的基础上，增加一个参数，表示device信息，taskjs中，解析该参数并从配置文件找到对应的ua和尺寸，完成设置后再抓取<br>
+在结果中也增加一个device字段保存传入的设备名<br>
+任务注意事项<br>
+chrome device toolbar不了解可以百度一下看看使用方法，在console中打印对应BOM信息查看<br>
+抽取的配置文件选三个就好：iphone5、iphone6、ipad<br>
+API提示：system.args、page.settings['userAgent']、page.viewportSize、page.clipRect<br>
