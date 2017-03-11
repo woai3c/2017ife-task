@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts NO.1 - 零基础绘制ECharts图表</title>
+    <script src="../echarts.js"></script>
+</head>
+<body>
+    <div id="chart" style="width: 800px;height:600px;"></div>
+    <script>
+        var echart = echarts.init(document.querySelector('#chart'));
+        echart.setOption({
+            title: {                    // 图表标题
+                text: "早餐销售统计"
+            },
+            tooltip: {},                // 鼠标悬停时显示标题
+            legend: {
+                data:['销量','销售额']   // 和series的name一一对应
+            },
+            xAxis: {                    // 横轴
+                data: ['肠粉', '猪杂粥', '炒粉', '皮蛋粥', '牛腩粉', '猪杂粉']
+            },                  
+            yAxis: {},                  // Y轴
+            series: [
+                {                       
+                    type: 'bar',        // 图表类型 
+                    name: '销售额',     // 鼠标悬念时弹出的提示内定           
+                    data: ['400', '300', '180', '300', '420', '480'], 
+                    itemStyle: {        // 图表颜色样式
+                        normal: {
+                            color: ['rgba(100, 100, 100, 0.5)']
+                        }
+                    }
+                },
+                {
+                    type: 'line',
+                    name: '销量',
+                    data: ['100', '50', '30', '50', '60', '80']                      
+                }
+            ]
+        });
+    </script>
+</body>
+</html>
