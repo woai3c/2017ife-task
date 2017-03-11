@@ -8,11 +8,7 @@
 任务注意事项  
 尝试背景图和伪元素两种不同方式实现，对比两种方式各自的优缺点。  
 注意测试不同情况，尤其是极端情况下的效果。  
-  
-
-
-
-
+<br><br><br><br><br>
 2 自定义网页右键菜单  
 任务目的  
 了解js中的oncontextmenu事件  
@@ -25,11 +21,7 @@
 自定义菜单出现在鼠标指针右下方，当右边区域不够大，展示在左下方，同理，当下方区域不够时，展示在鼠标指针上方  
 注意测试不同情况，尤其是极端情况下的效果  
 尽量不要使用第三方库，包括jQuery  
-
-
-
-
-
+<br><br><br><br><br>
 3 正则表达式之入门  
 任务目的  
 掌握JavaScript正则表达式编写规则  
@@ -48,12 +40,7 @@ foo  barbar bar   // false
 任务注意事项  
 完成任务之后，可以对比别人的实现方案，但不建议未尝试就直接搜索答案  
 在正则表达式的世界中，一个问题往往不止一种方案，可以尝试多种方法  
-
-
-
-
-
-
+<br><br><br><br><br>
 4 网页抓取分析服务系列之一（基础分析）<br>
 任务目的<br>
 体会数据的封装<br>
@@ -82,12 +69,7 @@ foo  barbar bar   // false
 多查API，学以致用<br>
 对于抓取的异常情况及时捕获并处理<br>
 结果中非自然结果的部分抛弃掉（广告、阿拉丁等），提前人工查看一下搜索结果，大多信息格式一致的都是自然结果，观察自然结果的class和相关结构特征。<br>
-
-
-
-
-
-
+<br><br><br><br><br>
 5 网页抓取分析服务系列之二（设备模拟）<br>
 任务目的<br>
 学会分析并借鉴其他工具的运行机制<br>
@@ -101,12 +83,7 @@ foo  barbar bar   // false
 chrome device toolbar不了解可以百度一下看看使用方法，在console中打印对应BOM信息查看<br>
 抽取的配置文件选三个就好：iphone5、iphone6、ipad<br>
 API提示：system.args、page.settings['userAgent']、page.viewportSize、page.clipRect<br>
-
-
-
-
-
-
+<br><br><br><br><br>
 6 ECharts & WebVR 学院 之 WebGL 方向
 在 WebGL 方向的教学过程中，你将了解到 WebGL 的一些基本原理，并且基于 Three.js 动手实现三维渲染的世界。
 
@@ -135,12 +112,7 @@ API提示：system.args、page.settings['userAgent']、page.viewportSize、page.
 在学习光影前，如果你创建的模型看起来是纯色，这完全是可以接受的；
 考虑如何用简单几何形状的组合，创造看起来更逼真的车；
 想一下，如果不用 Three.js，只使用 WebGL API 的话，实现这样的场景大概需要写哪些代码。
-
-
-
-
-
-
+<br><br><br><br><br>
 7  任务目的
 
 了解基础的 ECharts 用法
