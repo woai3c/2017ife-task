@@ -8,3 +8,5 @@ http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/maste
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/normal/re.html<br>
 4: WebGL No.1 - Three.js 入门<br>
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/normal/WebGL1.html<br>
+5: ECharts NO.1 - 零基础绘制ECharts图表<br>
+http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/normal/ECharts1.html<br>
