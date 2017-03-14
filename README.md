@@ -10,3 +10,5 @@ http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/maste
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/normal/WebGL1.html<br>
 5: ECharts NO.1 - 零基础绘制ECharts图表<br>
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/normal/ECharts1.html<br>
+6: 有趣的鼠标悬浮模糊效果
+http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/advanced/vague/vague.html<br>

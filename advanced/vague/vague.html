@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>有趣的鼠标悬浮模糊效果</title>
+    <style>
+    /*文中所有设置为visibility: hidden;的元素都是为了在鼠标悬停时变为visible而展示过渡效果 看起来像动画一样*/
+    .container {
+        position: relative;
+        border: 1px solid red;
+        font-weight: bold;
+        font-family: "Microsoft Yahei";
+        width: 500px;
+        height: 260px;
+        margin: auto;
+    }
+    .mask {
+        font-size: 30px;
+        position: absolute;
+        top: 50px;
+        left: 125px;
+        text-align: center;
+        padding: 10px;
+        visibility: hidden;                  
+        transition: all 0.5s linear;
+    }
+    .mask p {
+        background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
+        background-size: 50% 100%;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        animation: mask 4s linear infinite;
+    }
+    @keyframes mask {
+        0%  { background-position: 0 0;}
+        100% { background-position: 100% 0;}
+    }
+    @keyframes lines {
+        0%  { color: #147B96;}
+        25% { color: #E6D205;}
+        50% { color: #147B96;}
+        75% { color: #E6D205;}
+        100% { color: #147B96;}
+    }
+
+    .container:hover img {
+        filter: blur(5px);
+    }
+    .container a {
+        position: relative;
+        animation: lines 4s linear infinite;
+        z-index: 10;     /*鼠标悬停时能点到链接*/
+        font-size: 20px;
+    }
+    .mask::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 0;
+        border: 3px solid ghostwhite;
+        border-width: 0 3px;
+        transition: all 0.5s linear;
+        box-sizing: border-box;
+        visibility: hidden;
+    }
+    .mask::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 0;
+        height: 100%;
+        border: 5px solid ghostwhite;
+        border-width: 5px 0;
+        visibility: hidden;
+        transition: all 0.5s linear;
+        box-sizing: border-box;
+    }    
+    .container:hover .mask::before {
+        height: 100%;
+        visibility: visible;
+        top: 0;
+    }
+    .container:hover .mask::after {
+        width: 100%;
+        visibility: visible;
+        left: 0;
+    }    
+    .container:hover .mask {
+        visibility: visible;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <img src="bear.png">
+        <div class="mask"> 
+            <p>百度前端技术学院</p>
+            <a href="http://ife.baidu.com">点击报名</a>
+        </div>    
+    </div> 
+</body>
+</html>
