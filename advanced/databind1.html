@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>动态数据绑定（一）</title>
+</head>
+<body>
+ <script>
+    var data = {
+        user: {
+            name: 'xiaoming',
+            age: 18,
+            occupation: 'frontend'
+        },
+        address: {
+            city: 'shaoguan'
+        }
+    }; 
+
+    function Observer(data) {
+        this.data = data;
+        this.walk(data);
+    }
+
+    Observer.prototype = {
+        walk: function(obj) {
+            var value,
+                key;
+            for (key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    value = obj[key];
+                    if (typeof value === 'object') {
+                        new Observer(value);
+                    }
+                    this.convert(key, value); 
+                }   
+            }
+        },
+        convert: function(key, value) {
+            Object.defineProperty(this.data, key, {
+                get : function(){ 
+                    console.log("你访问了" + key);
+                    return value; 
+                },
+                set : function(newValue){ 
+                    value = newValue; 
+                    console.log('你设置了' + key + '=' + value);
+                }
+            });
+        }
+    }  
+    var example = new Observer(data);
+ </script>   
+</body>
+</html>
