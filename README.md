@@ -12,3 +12,5 @@ http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/maste
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/normal/ECharts1.html<br>
 6: 有趣的鼠标悬浮模糊效果<br>
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/advanced/vague/vague.html<br>
+7: 使用CSS实现折叠面板<br>
+http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/advanced/fold.html<br>
