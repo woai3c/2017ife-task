@@ -113,7 +113,8 @@ API提示：system.args、page.settings['userAgent']、page.viewportSize、page.
 考虑如何用简单几何形状的组合，创造看起来更逼真的车；
 想一下，如果不用 Three.js，只使用 WebGL API 的话，实现这样的场景大概需要写哪些代码。
 <br><br><br><br><br>
-7  任务目的
+7  ECharts NO.1 - 零基础绘制ECharts图表
+任务目的
 
 了解基础的 ECharts 用法
 了解基础的前端页面编写
