@@ -1,5 +1,5 @@
                                     百度前端技术学院2017任务
-                                                                普通级别
+                                        
 1:自定义input样式<br>
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/normal/checkStyle.html<br>
 2:自定义网页右键菜单<br>
@@ -14,3 +14,5 @@ http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/maste
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/advanced/vague/vague.html<br>
 7: 使用CSS实现折叠面板<br>
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/advanced/fold.html<br>
+8: CSS3饼状loading效果<br>
+http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/advanced/loading.html<br>
