@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3饼状loading效果</title>
+    <style>
+    /*一个圆 左半圆为红 右半圆为粉 再画一个半圆红和一个半圆粉 这两个半圆都在背景圆的左边*/
+        #container {
+            width: 200px;
+            height: 200px;
+            margin-left: calc( 50vw - 100px);
+            margin-top: calc( 50vh - 100px);
+            position: relative;
+        }
+        .ring {
+            width: 70px;
+            height: 70px;
+            border: 2px solid #fb8bbc;
+            border-top-color: transparent;
+            border-radius: 50%;
+            box-sizing: border-box;
+            position: absolute;
+            top: 26px;
+            left: 26px;
+            animation: ring 1s linear infinite;
+        }
+        .background_circle {
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: 42px;
+            top: 42px;
+            border: 20px solid #ff298c;
+            border-right-color: #fb8bbc;
+            border-top-color: #fb8bbc;
+            transform: rotate(45deg);
+            border-radius: 50%;
+        }
+        .half_red {
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: 42px;
+            top: 42px;
+            border: 20px solid #ff298c;
+            border-right-color: transparent;
+            border-top-color: transparent;
+            transform: rotate(45deg);
+            border-radius: 50%;
+            animation: half_red 2s linear infinite;
+            animation-delay: 0.50s;
+            z-index: 5;
+        }
+        .half_pink {
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: 42px;
+            top: 42px;
+            border: 20px solid #fb8bbc;
+            border-right-color: transparent;
+            border-top-color: transparent;
+            transform: rotate(45deg);
+            border-radius: 50%;
+            animation: half_pink 2s linear infinite;
+            z-index: 6;
+        }
+        /*外环动画*/
+        @keyframes ring {
+            from {transform: rotate(0deg)}
+            to {transform: rotate(-360deg)}
+        }
+        /*粉半圆动画*/
+        @keyframes half_pink {
+            0% {transform: rotate(45deg);z-index: 6}
+            25% {transform: rotate(-135deg);z-index: 6;}
+            50% {transform: rotate(-135deg);z-index: 5;}
+            75% {transform: rotate(-315deg);z-index: 6;}
+            100% {transform: rotate(-315deg);z-index: 6;}
+        }
+        /*红半圆动画*/
+        @keyframes half_red {
+            0% {transform: rotate(45deg);z-index: 6}
+            25% {transform: rotate(-135deg);z-index: 6}
+            50% {transform: rotate(-135deg);z-index: 6}
+            50.001% {transform: rotate(-135deg);z-index: 5}
+            75% {transform: rotate(-315deg);z-index: 5}
+            99.999% {transform: rotate(-315deg);z-index: 5}
+            100% {transform: rotate(-315deg);z-index: 5}
+        }        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="background_circle"></div>
+        <div class="half_pink"></div>
+        <div class="half_red"></div>
+        <div class="ring"></div>
+    </div>
+</body>
+</html>
