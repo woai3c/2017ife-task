@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CSS3实现3D轮播图</title>
+    <style type="text/css">
+    /*用定时器 缺点就是缩小或转到其它页面时 浏览器会暂停定时器 所以当转回来的时候会快速旋转*/
+        .container {
+            position: relative;
+            perspective: 800px;
+            top: 300px;
+            height: 150px;
+            width: 250px;
+            margin: auto;
+        }
+        .imgDiv {
+            transform-style: preserve-3d;
+            transition: all 0.4s linear;
+        }
+        .imgDiv img {
+            width: 100%;
+            position: absolute;
+        }
+        img:nth-child(1) {
+            transform: rotateY(0deg) translateZ(400px);
+        }        
+        img:nth-child(2) {
+            transform: rotateY(40deg) translateZ(400px);
+
+        }
+        img:nth-child(3) {
+            transform: rotateY(80deg) translateZ(400px);
+
+        }
+        img:nth-child(4) {
+            transform: rotateY(120deg) translateZ(400px);
+
+        }
+        img:nth-child(5) {
+            transform: rotateY(160deg) translateZ(400px);
+        }
+        img:nth-child(6) {
+            transform: rotateY(200deg) translateZ(400px);
+        }
+        img:nth-child(7) {
+            transform: rotateY(240deg) translateZ(400px);
+        }
+        img:nth-child(8) {
+            transform: rotateY(280deg) translateZ(400px);
+        }
+        img:nth-child(9) {
+            transform: rotateY(320deg) translateZ(400px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="imgDiv">
+            <img src="1.jpg">
+            <img src="2.jpg">
+            <img src="3.jpg">
+            <img src="4.jpg">
+            <img src="5.jpg">
+            <img src="6.jpg">
+            <img src="7.jpg">
+            <img src="8.jpg">
+            <img src="9.jpg">
+        </div>
+    </div>
+    <script>
+        var imgDiv = document.querySelector('.imgDiv');
+        var angle = 0;
+        setInterval(function(){
+            angle += 40;
+            imgDiv.style.transform = 'rotateY(' + angle + 'deg)'; 
+        }, 2000);
+    </script>
+</body>
+</html>
