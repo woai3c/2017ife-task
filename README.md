@@ -16,3 +16,5 @@ http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/maste
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/advanced/fold.html<br>
 8: CSS3饼状loading效果<br>
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/advanced/loading.html<br>
+9: CSS3实现3D轮播图<br>
+http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/advanced/3Dloop/3Dloop.html<br>
