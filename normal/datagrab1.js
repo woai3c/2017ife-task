@@ -22,15 +22,11 @@ page.open(url, function(status){
             for (var i = 0, len = contents.length; i < len; i++) {
                 var temp = {};          
                 var a = contents[i].querySelector("h3 a");
-                temp.title = a.innerText || "";                             // 如果数据为空则取空字符串
-                temp.link = a.href || "";
-                temp.info = infos[i].innerText || "";
-                var img = contents[i].querySelector("img") || "";
-                if (img) {
-                    temp.pic = img.src;
-                } else {
-                    temp.pic = "";
-                }
+                temp.title = a.innerText? a.innerText : "";                             // 如果数据为空则取空字符串
+                temp.link = a.href? a.href : "";
+                temp.info = infos[i]? infos[i].innerText : "";
+                var img = contents[i].querySelector("img");
+                temp.pic = img? img.src : "";
                 tempArry.push(temp);
             }  
             return tempArry;                                                   // 返回所有数据

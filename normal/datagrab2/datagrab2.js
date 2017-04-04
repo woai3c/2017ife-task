@@ -41,9 +41,11 @@ page.open(url, function(status){
             var tempArry = [];
             for (var i = 0, len = contents.length; i < len; i++) {
                 var temp = {};          
-                temp.title = contents[i].querySelector("a h3").innerText;
+                var h3 = contents[i].querySelector("a h3");
+                temp.title = h3? h3.innerText : "";
                 temp.link = contents[i].querySelector("a").href;
-                temp.info = contents[i].querySelector("p").innerText;
+                var p = contents[i].querySelector("p");
+                temp.info = p? p.innerText : "";
                 var img = contents[i].querySelector("img") || "";
                 temp.pic = img? img.src : "";
                 tempArry.push(temp);
