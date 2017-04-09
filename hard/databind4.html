@@ -11,7 +11,7 @@
         <p>地址：{{user.address.province}}{{user.address.city}}</p>
     </div>
 <script>
-    var vue = {
+    var vuedata = {
         el: '#app',
         data: {
             user: {
@@ -27,94 +27,30 @@
             }
         }
     };
-    function Observer(data, parent, parentkey, handlers, ele) {
-        this.ele = ele;
+    function Vue(data, id) {
+        this.ele = document.querySelector(id);
+        this.content = this.ele.innerHTML;
         this.data = data;
-        this.handlers = handlers || {};
-        this.parent = parent || {};
-        this.parentkey = parentkey || '';
-        this.walk(data);
     }
-    Observer.prototype = {
-        walk: function(obj) {
-            var value,
-                key;
-            for (key in obj) {
-                if (obj.hasOwnProperty(key)) {
-                    value = obj[key];
-                    if (typeof value === 'object') {
-                        new Observer(value, this, key, this.handlers, this.ele);
-                    }
-                    this.convert(key, value); 
-                }   
-            }
-        },
-        convert: function(key, value) {
-            var self = this;
-            Object.defineProperty(this.data, key, {
-                enumerable: true,
-                configurable: true,
-                get : function() { 
-                    console.log("你访问了" + key);
-                    return value; 
-                },
-                set : function(newValue) {
-                    if (value == newValue) {
-                        return;
-                    }
-                    console.log('你设置了' + key + '="' + newValue + '"');
-                    value = newValue; 
-                    var parent = self.parent;
-                    var parentkey = self.parentkey;
-                    while (parent) { 
-                        self.emit(parentkey, value);
-                        parentkey = parent.parentkey;
-                        parent = parent.parent;
-                    }
-                    if (typeof value === 'object') {
-                        new Observer(value, self, key, self.handlers, self.ele);
-                    }
-                    self.emit(key, value);
-                }
-            });
-        },
-        $watch: function(key, func) {
-            var keys = this.handlers[key];
-            if (keys) {
-                keys.push(func);
-            } else {
-                this.handlers[key] = [func];
-            }
-        },
-        emit: function(key, value) {
-            var keys = this.handlers[key];
-            if (keys) {
-                keys.forEach(function(item){
-                    item(value);
-                });
-            }
-        },
-        setElementData: function() {
-            var elements = this.ele.children;
+    Vue.prototype = {
+        render: function() {
+            var content = this.content;
             var re1 = /{{.+?}}/g;
             var re2 = /{{(.+)}}/;
-            for (var i = 0, len = elements.length; i < len; i++) {
-                var text = elements[i].innerHTML;
-                var arry = text.match(re1); // 匹配中每个元素节点中{{xxx.xxx}}格式的数据
-                for (var j = 0, jlen = arry.length; j < jlen; j++) {
-                    var strArry = arry[j].match(re2)[1].split('.'); // 将{{xxx.xxx}} 分隔开
-                    var tempdata = this.data;
-                    for (var k = 0, klen = strArry.length; k < klen; k++) {
-                        tempdata = tempdata[strArry[k]]; // 逐项读取数据
-                    }
-                    text = text.replace(arry[j], tempdata); // 把{{xxx.xxx}}替换为真实数据
+            var arry = content.match(re1); // 匹配中元素节点中{{xxx.xxx}}格式的数据
+            for (var i = 0, len = arry.length; i < len; i++) {
+                var strArry = arry[i].match(re2)[1].split('.'); // 将{{xxx.xxx}} 分隔开
+                var tempdata = this.data;
+                for (var k = 0, klen = strArry.length; k < klen; k++) {
+                    tempdata = tempdata[strArry[k]]; // 逐项读取数据
                 }
-                elements[i].innerHTML = text; // 写到文档中
+                content = content.replace(arry[i], tempdata); // 把{{xxx.xxx}}替换为真实数据
             }
+            this.ele.innerHTML = content;
         }
     }      
-    var example = new Observer(vue.data, {}, '', {}, document.querySelector(vue.el));
-    example.setElementData();
+    var example = new Vue(vuedata.data, vuedata.el);
+    example.render();
 </script>   
 </body>
 </html>

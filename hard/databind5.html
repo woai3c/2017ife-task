@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>动态数据绑定（五）</title>
+</head>
+<body>
+    <div id="app">
+        <p>姓：{{user.name.firstName}}, 名：{{user.name.lastName}}</p>
+        <p>年龄：{{user.age}}</p>
+        <p>地址：{{user.address.province}}{{user.address.city}}</p>
+    </div>
+<script>
+    function Vue(data, id, html, initdata) {
+        this.id = id;
+        this.data = data;
+        this.ele = document.querySelector(id);
+        this.html = html || this.ele.innerHTML; // 记录HTML的初始内容 就是带有{{xxx.xxx}}的这种格式 
+        this.initdata = initdata || data; // 记录最开始创建对象的数据 以上两项数据在render函数中使用
+        this.walk(data);
+    }
+    Vue.prototype = {
+        walk: function(obj) {
+            var value,
+                key;
+            for (key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    value = obj[key];
+                    if (typeof value === 'object') {
+                        new Vue(value, this.id, this.html, this.initdata); // 递归时把初始内容和初始数据传递进去 render函数要使用
+                    }
+                    this.convert(key, value); 
+                }   
+            }
+        },
+        convert: function(key, value) {
+            var self = this;
+            Object.defineProperty(this.data, key, {
+                enumerable: true,
+                configurable: true,
+                get : function() { 
+                    console.log("你访问了" + key);
+                    return value; 
+                },
+                set : function(newValue) {
+                    if (value == newValue) {
+                        return;
+                    }
+                    console.log('你设置了' + key + '="' + newValue + '"');
+                    if (typeof value === 'object') {
+                        new Vue(value, self.id, self.html, self.initdata); // 递归时把初始内容和初始数据传递进去 render函数要使用
+                    }
+                    value = newValue; 
+                    self.render();
+                }
+            });
+        },
+        render: function() {
+            var html = this.html;
+            var re1 = /{{.+?}}/g; // 将DOM中所有{{xxx}}的格式匹配出来
+            var re2 = /{{(.+)}}/; 
+            var arry = html.match(re1); // 将{{xxx.xxx}}中的xxx.xxx匹配出来
+            for (var i = 0, len = arry.length; i < len; i++) {
+                var strArry = arry[i].match(re2)[1].split('.'); // 将{{xxx.xxx}} 分隔开
+                var tempdata = this.initdata;
+                for (var k = 0, klen = strArry.length; k < klen; k++) {
+                    tempdata = tempdata[strArry[k]]; // 逐项读取数据
+                }
+                if (typeof tempdata === 'object') {
+                    tempdata = JSON.stringify(tempdata); // 如果新设的值为对象 则序列化为字符串
+                }
+                html = html.replace(arry[i], tempdata); // 把{{xxx.xxx}}替换为真实数据
+            }
+            this.ele.innerHTML = html;
+        }
+    }      
+    var vuedata = {
+        el: '#app',
+        data: {
+            user: {
+                name: {
+                    firstName: '吴',
+                    lastName: '小明'
+                },
+                age: 25,
+                address: {
+                    province: '广东省',
+                    city: '深圳市'
+                }
+            }
+        }
+    };
+    var example = new Vue(vuedata.data, vuedata.el, '');
+    example.render(); // 页面加载后可在控制台修改数据 同时能看到页面内容同时改变 
+                      // 例如example.data.user.name.firstName = '张' 可以看到吴小明变成张小明
+</script>   
+</body>
+</html>
