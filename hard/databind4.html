@@ -2,21 +2,33 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>动态数据绑定（三）</title>
+    <title>动态数据绑定（四）</title>
 </head>
 <body>
     <div id="app">
-        <p>姓名：{{user.name}}</p>
+        <p>姓：{{user.name.firstName}}, 名：{{user.name.lastName}}</p>
         <p>年龄：{{user.age}}</p>
+        <p>地址：{{user.address.province}}{{user.address.city}}</p>
     </div>
 <script>
-    var data = {
-        user: {
-            name: 'xiaoming',
-            age: 18
+    var vue = {
+        el: '#app',
+        data: {
+            user: {
+                name: {
+                    firstName: '吴',
+                    lastName: '小明'
+                },
+                age: 25,
+                address: {
+                    province: '广东省',
+                    city: '深圳市'
+                }
+            }
         }
-    }; 
-    function Observer(data, parent, parentkey, handlers) {
+    };
+    function Observer(data, parent, parentkey, handlers, ele) {
+        this.ele = ele;
         this.data = data;
         this.handlers = handlers || {};
         this.parent = parent || {};
@@ -31,7 +43,7 @@
                 if (obj.hasOwnProperty(key)) {
                     value = obj[key];
                     if (typeof value === 'object') {
-                        new Observer(value, this, key, this.handlers);
+                        new Observer(value, this, key, this.handlers, this.ele);
                     }
                     this.convert(key, value); 
                 }   
@@ -60,7 +72,7 @@
                         parent = parent.parent;
                     }
                     if (typeof value === 'object') {
-                        new Observer(value, self, key, self.handlers);
+                        new Observer(value, self, key, self.handlers, self.ele);
                     }
                     self.emit(key, value);
                 }
@@ -81,17 +93,28 @@
                     item(value);
                 });
             }
+        },
+        setElementData: function() {
+            var elements = this.ele.children;
+            var re1 = /{{.+?}}/g;
+            var re2 = /{{(.+)}}/;
+            for (var i = 0, len = elements.length; i < len; i++) {
+                var text = elements[i].innerHTML;
+                var arry = text.match(re1); // 匹配中每个元素节点中{{xxx.xxx}}格式的数据
+                for (var j = 0, jlen = arry.length; j < jlen; j++) {
+                    var strArry = arry[j].match(re2)[1].split('.'); // 将{{xxx.xxx}} 分隔开
+                    var tempdata = this.data;
+                    for (var k = 0, klen = strArry.length; k < klen; k++) {
+                        tempdata = tempdata[strArry[k]]; // 逐项读取数据
+                    }
+                    text = text.replace(arry[j], tempdata); // 把{{xxx.xxx}}替换为真实数据
+                }
+                elements[i].innerHTML = text; // 写到文档中
+            }
         }
     }      
-    var example = new Observer(data);
-    var elements = document.querySelector('#app').children;
-    for (var i = 0, len = elements.length; i < len; i++) {
-        var str = elements[i].innerHTML;
-        var str1 = str.match(/({{)(.+)(}})/)[0];
-        var str2 = str1.replace(/({{)(.+)(}})/, "$2");
-        var arry = str2.split('.');
-        elements[i].innerHTML = str.replace(str1, example.data[arry[0]][arry[1]]);
-    }
+    var example = new Observer(vue.data, {}, '', {}, document.querySelector(vue.el));
+    example.setElementData();
 </script>   
 </body>
 </html>
