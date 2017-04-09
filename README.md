@@ -18,3 +18,6 @@ http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/maste
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/advanced/loading.html<br>
 9: CSS3实现3D轮播图<br>
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/advanced/3Dloop/3Dloop.html<br>
+10: 动态数据绑定（四）<br>
+http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/hard/databind4.html<br>
+
