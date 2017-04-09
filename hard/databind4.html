@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>动态数据绑定（三）</title>
+</head>
+<body>
+    <div id="app">
+        <p>姓名：{{user.name}}</p>
+        <p>年龄：{{user.age}}</p>
+    </div>
+<script>
+    var data = {
+        user: {
+            name: 'xiaoming',
+            age: 18
+        }
+    }; 
+    function Observer(data, parent, parentkey, handlers) {
+        this.data = data;
+        this.handlers = handlers || {};
+        this.parent = parent || {};
+        this.parentkey = parentkey || '';
+        this.walk(data);
+    }
+    Observer.prototype = {
+        walk: function(obj) {
+            var value,
+                key;
+            for (key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    value = obj[key];
+                    if (typeof value === 'object') {
+                        new Observer(value, this, key, this.handlers);
+                    }
+                    this.convert(key, value); 
+                }   
+            }
+        },
+        convert: function(key, value) {
+            var self = this;
+            Object.defineProperty(this.data, key, {
+                enumerable: true,
+                configurable: true,
+                get : function() { 
+                    console.log("你访问了" + key);
+                    return value; 
+                },
+                set : function(newValue) {
+                    if (value == newValue) {
+                        return;
+                    }
+                    console.log('你设置了' + key + '="' + newValue + '"');
+                    value = newValue; 
+                    var parent = self.parent;
+                    var parentkey = self.parentkey;
+                    while (parent) { 
+                        self.emit(parentkey, value);
+                        parentkey = parent.parentkey;
+                        parent = parent.parent;
+                    }
+                    if (typeof value === 'object') {
+                        new Observer(value, self, key, self.handlers);
+                    }
+                    self.emit(key, value);
+                }
+            });
+        },
+        $watch: function(key, func) {
+            var keys = this.handlers[key];
+            if (keys) {
+                keys.push(func);
+            } else {
+                this.handlers[key] = [func];
+            }
+        },
+        emit: function(key, value) {
+            var keys = this.handlers[key];
+            if (keys) {
+                keys.forEach(function(item){
+                    item(value);
+                });
+            }
+        }
+    }      
+    var example = new Observer(data);
+    var elements = document.querySelector('#app').children;
+    for (var i = 0, len = elements.length; i < len; i++) {
+        var str = elements[i].innerHTML;
+        var str1 = str.match(/({{)(.+)(}})/)[0];
+        var str2 = str1.replace(/({{)(.+)(}})/, "$2");
+        var arry = str2.split('.');
+        elements[i].innerHTML = str.replace(str1, example.data[arry[0]][arry[1]]);
+    }
+</script>   
+</body>
+</html>
