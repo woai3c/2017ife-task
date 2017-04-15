@@ -1,0 +1,94 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网页抓取分析服务系列之四（数据交互）</title>
+    <style>
+        table {
+            width: 1000px;
+            border-collapse: collapse;
+            text-align: center;
+            margin: 20px 0;
+        }
+        td {
+            width: 25%;
+            border: 1px solid #e6e6e6;
+            table-layout: fixed;
+            word-break: break-all;
+        }
+        #tab1 td {
+            height: 30px;
+        }
+        #tab2 tr:first-child {
+            text-align: center;
+        }
+        #tab2 tr:first-child {
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>数据查询</h1>
+    <p>在下列选项中输入要查询的关键词以及选择设备</p>
+    <label>关键词</label><input>
+    <select>
+        <option>pc</option>
+        <option>iphone5</option>
+        <option>iphone6</option>
+    </select>
+    <button>查询</button>
+    <table id='tab1'>
+        <tr>
+            <td>状态码</td>
+            <td>消息</td>
+            <td>关键词</td>
+            <td>时间</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <table id='tab2'>
+        <tr>
+            <td>标题</td>
+            <td>摘要</td>
+            <td>链接</td>
+            <td>缩略图</td>
+        </tr>
+    </table>
+<script src="jquery.js"></script>
+<script>
+    $('button').on('click', function() {
+        $.ajax({
+            type: 'POST',
+            data: {word: $('input').val(), device: $('select').val()},
+            success: function(data) {
+                var $tds = $('#tab1 tr:last-child td');
+                $tds.eq(0).html(data.code);
+                $tds.eq(1).html(data.msg);
+                $tds.eq(2).html(data.word);
+                $tds.eq(3).html(data.time);
+                var content = '<tr><td>标题</td><td>摘要</td><td>链接</td><td>缩略图</td></tr>';
+                for (var i = 0, len = data.dataList.length; i < len; i++) {
+                    var str = data.dataList[i].pic? '<td>' + '<img src="' + data.dataList[i].pic.trim() + '"></td>' : '<td>' + data.dataList[i].pic + '</td>';
+                    content += '<tr>'
+                            + '<td>' + data.dataList[i].title.trim() + '</td>'
+                            + '<td>' + data.dataList[i].info.trim() + '</td>'
+                            + '<td><a target="_blank" href=' + data.dataList[i].link.trim() + '>' + data.dataList[i].link.trim() + '</td>'
+                            + str
+                            + '</tr>';
+                }
+                $('#tab2').html(content);
+            },
+            error: function() {
+                alert('请求失败');
+            }
+        });
+    });
+</script>
+</body>
+</html>
