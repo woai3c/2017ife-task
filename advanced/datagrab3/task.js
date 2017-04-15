@@ -8,7 +8,7 @@ if (system.args.length < 3) {
 }
 var keyword = system.args[1],
     deviceName = system.args[2],
-    url = "https://www.baidu.com/s?wd=" + keyword;
+    url = "https://www.baidu.com/s?wd=" + encodeURIComponent(keyword);
 phantom.injectJs("./data.js");  // 直接引入JSON文件提示不能解析 不懂 所以只能引入JS文件了 
 
 for (var j = 0, jlen = deviceData.length; j < jlen; j++) {
