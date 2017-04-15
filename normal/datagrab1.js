@@ -4,7 +4,7 @@ var page = require("webpage").create(),
     system = require("system"),
     keyword = system.args[1],
     time = Date.now(),
-    url = "https://www.baidu.com/s?wd=" + keyword,
+    url = "https://www.baidu.com/s?wd=" + encodeURIComponent(keyword),
     data = {};
 page.open(url, function(status){
     if (status != "success") {                                  // 判断status 失败
