@@ -1,0 +1,99 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网页抓取分析服务系列之四（数据交五）</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            margin: 20px 0;
+        }
+        td {
+            padding: 5px;
+            width: 25%;
+            border: 1px solid #e6e6e6;
+            table-layout: fixed;
+            word-break: break-all;
+        }
+        #tab2 tr {
+            text-align: center;
+        }
+        #tab2 td {
+            width: 35%;
+        }
+        #tab2 td:last-child,
+        #tab2 td:first-child {
+            width: 15%;
+        }
+        span {
+            font-size: 16px;
+        }
+        input {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>数据查询<span style="margin-left: 100px">已完成/总任务: </span><span class="done">0</span><span>/</span><span class="total">0</span></h1>
+    <p>在下列选项中输入要查询的关键词以及选择设备</p>
+    <label>关键词</label><input id="keyword">
+    <input name="device" type="checkbox" value="pc" checked><label>pc</label>
+    <input name="device" type="checkbox" value="iphone5"><label>iphone5</label>
+    <input name="device" type="checkbox" value="iphone6"><label>iphone6</label><br>
+    <label>页数</label><input id="pages" value=1>
+    <button>查询</button>
+    <table id='tab2'>
+
+    </table>
+<script src="jquery.js"></script>
+<script src="socket.io.js"></script>
+<script>
+    var socket = io();
+    socket.on('grabData', function(arry) {
+        var data = arry[0];
+        var done = arry[1];
+        var total = arry[2];
+        $('.done').html(done);
+        $('.total').html(total);
+        var content = '<tr><td>设备：' + data.device +'</td><td>消息：' + data.msg + '</td><td>关键词：' + data.word + '</td><td>时间：' + data.time +'</td></tr>';
+        content += '<tr><td>标题</td><td>摘要</td><td>链接</td><td>缩略图</td></tr>';
+        for (var i = 0, len = data.dataList.length; i < len; i++) {
+            var str = data.dataList[i].pic? '<td>' + '<img src="' + data.dataList[i].pic + '"></td>' : '<td>' + data.dataList[i].pic + '</td>';
+            content += '<tr>'
+                    + '<td>' + data.dataList[i].title + '</td>'
+                    + '<td>' + data.dataList[i].info+ '</td>'
+                    + '<td><a target="_blank" href=' + data.dataList[i].link + '>' + data.dataList[i].link + '</td>'
+                    + str
+                    + '</tr>';
+        }
+        content += '<tr><td colspan="5" style="border: none;"><br>分隔线<hr><br><br></td></tr>';
+        $('#tab2').append(content);
+    });
+
+    $('button').on('click', function() {
+        var $inputs = $('input[name="device"]:checked');
+        var value = [];
+        var jlen = $inputs.length;
+        var pageVal = $('#pages').val();
+        var word = $('#keyword').val().replace(' ', 'kongge'); // 关键词中的空格替换为kongge 在搜索时再把kongge替换回空格
+        if (jlen == 0) {
+            alert('请选择设备');
+            return;
+        } else if (pageVal < 1 || isNaN(pageVal)) {
+            alert('请输入正确的页数');
+            return;
+        } else if (word == '') {
+            alert('请输入关键词');
+            return;
+        } else {
+            for (var j = 0, jlen = $inputs.length; j < jlen; j++) {
+                value.push($inputs[j].value);
+            }
+            socket.emit('query', {word: word, device: value, pages: pageVal});
+        }
+    });
+</script>
+</body>
+</html>
