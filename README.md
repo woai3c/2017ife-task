@@ -22,4 +22,6 @@ http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/maste
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/hard/databind4.html<br>
 11: 动态数据绑定（五）<br>
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/hard/databind5.html<br>
+12: 音乐播放器<br>
+http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/hard/player/index.html<br>
 
