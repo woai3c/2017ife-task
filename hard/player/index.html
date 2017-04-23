@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>仿豆瓣音乐播放器</title>
+    <link rel="stylesheet" href="font_icon/iconfont.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <input type="file" class="upload">
+        <div class="left">
+            <p class="song_name">背叛</p>
+            <p class="singer">曹格</p>
+            <div class="audio_div">
+                <audio data-index='0'  src="song/曹格 - 背叛.mp3">您的浏览器不支持HTML5的audio属性，请升级浏览器</audio>
+                <span class="display_cur_time">00:00</span>
+                <span class="display_end_time">/00:00</span>
+                <a href="javascript:void(0)">
+                    <img class="horn" src="images/horn.jpg">
+                </a>
+                <div class="horn_bar_container">
+                    <div class="horn_bar_bg">
+                        <div class="horn_bar"></div>
+                        <div class="horn_circle"></div>
+                    </div>
+                </div>
+                <div class="bar_container">
+                    <div class="prrogress_bar_bg">
+                        <div class="prrogress_bar"></div>
+                        <div class="bar_circle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="four">
+                <a title="下载" href="song/曹格 - 背叛.mp3" download class="download">
+                    <i class="iconfont icon-dibu"></i>
+                </a>
+                <a title="添加" href="javascript:void(0)">
+                    <i class="iconfont icon-zengjia"></i>
+                </a>
+                <a title="分享" href="javascript:void(0)">
+                    <i class="iconfont icon-fenxiang"></i>
+                </a>
+            </div>
+            <div class="bottom">
+                <div class="bottom_left">
+                    <a title="收藏" href="javascript:void(0)" class="love_icon">
+                        <i class="iconfont icon-xihuan1"></i>
+                    </a>
+                    <a title="删除" href="javascript:void(0)">
+                        <i class="iconfont icon-shanchu"></i>
+                    </a>
+                </div>
+                <div class="bottom_right">
+                    <a title="播放" href="javascript:void(0)" class="isplay">
+                        <i class="iconfont icon-bofang"></i>
+                    </a>
+                    <a title="下一曲" href="javascript:void(0)">
+                        <i class="iconfont icon-jinrujiantou"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div>
+                <img src="images/曹格.jpg">
+            </div>
+        </div>
+    </div>
+<script src="index.js"></script>
+</body>
+</html>

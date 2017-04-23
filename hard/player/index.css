@@ -1,0 +1,160 @@
+* {
+    font-family: Microsoft YaHei;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+.container {
+    width: 800px;
+    height: 260px;
+    background: #fafafa;
+    margin: auto;
+    font-size: 0;
+    box-sizing: border-box;
+}
+.container>div {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px;
+    height: 100%;
+    vertical-align: top;
+}
+.container audio {
+    width: 100%;
+}
+.container .left {
+    width: 58%;
+    margin-left: 2%;
+    position: relative;
+}
+.container .song_name {
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 15px;
+}
+.container .singer{
+    font-size: 18px;
+    color: #666;
+    margin: 15px 0;
+}
+.container .right {
+    width: 40%;
+}
+.container .right div {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 20px;
+}
+.container .right div img {
+    width: 100%;
+    height: 100%;
+}
+.container .bottom {
+    width: 100%;
+    margin-top: 60px;
+}
+.container .bottom a {
+    margin-right: 20px;
+}
+.container .bottom_left {
+    float: left;
+}
+.container .bottom_right {
+    float: right;
+}
+.container .bottom_right a {
+    margin-left: 20px;
+}
+.iconfont {
+    font-size: 26px;
+}
+.container .four {
+    position: absolute;
+    right: 3%;
+    top: 38%;
+}
+.container .four a {
+    margin: 0 10px;
+}
+.container .four .iconfont {
+    font-size: 20px;
+}
+.container .upload {
+    display: none;
+}
+.container .prrogress_bar_bg {
+    background: #dadada;
+    height: 1px;
+    width: 100%;
+    margin-top: 5px;
+    position: relative;
+}
+.container .prrogress_bar_bg .prrogress_bar {
+    background: #44bc7f;
+    height: 100%;
+    width: 0;
+}
+.container .bar_container {
+    width: 100%;
+    height: 10px;
+    cursor: default;
+}
+.container .bar_circle {
+    border: 3px solid #44bc7f;
+    position: absolute;
+    border-radius: 50%;
+    top: -2px;
+    display: none;
+}
+.container .bar_container:hover .bar_circle {
+    display: block;
+}
+.container .audio_div {
+    position: relative;
+}
+.container .audio_div img {
+    width: 16px;
+}
+.container .audio_div span {
+    font-size: 12px;
+    vertical-align: top;
+}
+.container .display_end_time {
+    margin-right: 10px;
+}
+.container .horn_bar_container {
+    position: absolute;
+    width: 30px;
+    height: 80px;
+    background: #fff;
+    left: 62px;
+    top: -80px;
+    display: none;
+}
+.container .horn_bar_bg {
+    position: relative;
+    width: 1px;
+    height: 60px;
+    margin: auto;
+    margin-top: 10px;
+    background: #dadada;
+}
+.container .horn_bar {
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    background: #44bc7f;
+    position: absolute;
+}
+.container .horn_circle {
+    border: 3px solid #44bc7f;
+    position: absolute;
+    border-radius: 50%;
+    left: -2px;
+    bottom: 50%;
+}
