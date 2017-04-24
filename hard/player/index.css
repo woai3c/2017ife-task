@@ -15,6 +15,11 @@ a {
     font-size: 0;
     box-sizing: border-box;
 }
+.container h1 {
+    font-size: 20px;
+    padding: 100px 300px;
+
+}
 .container>div {
     display: inline-block;
     box-sizing: border-box;
@@ -83,6 +88,11 @@ a {
 }
 .container .four .iconfont {
     font-size: 20px;
+}
+.container .music_loop img {
+    width: 20px;
+    position: absolute;
+    left: -7px;
 }
 .container .upload {
     display: none;
@@ -157,4 +167,8 @@ a {
     border-radius: 50%;
     left: -2px;
     bottom: 50%;
+}
+.container .horn_bar_container_two {
+    width: 60%;
+    margin: auto;
 }

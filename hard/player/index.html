@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>仿豆瓣音乐播放器</title>
     <link rel="stylesheet" href="font_icon/iconfont.css">
+    <link rel="stylesheet" href="font_icon2/iconfont.css">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -16,14 +17,16 @@
                 <audio data-index='0'  src="song/曹格 - 背叛.mp3">您的浏览器不支持HTML5的audio属性，请升级浏览器</audio>
                 <span class="display_cur_time">00:00</span>
                 <span class="display_end_time">/00:00</span>
-                <a href="javascript:void(0)">
+                <a href="javascript:void(0)" title="音量">
                     <img class="horn" src="images/horn.jpg">
                 </a>
                 <div class="horn_bar_container">
-                    <div class="horn_bar_bg">
-                        <div class="horn_bar"></div>
-                        <div class="horn_circle"></div>
-                    </div>
+                    <div class="horn_bar_container_two">
+                        <div class="horn_bar_bg">
+                            <div class="horn_bar"></div>
+                            <div class="horn_circle"></div>
+                        </div>
+                    </div>    
                 </div>
                 <div class="bar_container">
                     <div class="prrogress_bar_bg">
@@ -33,14 +36,17 @@
                 </div>
             </div>
             <div class="four">
+                <a href="javascript:void(0)" class="music_loop" title="单曲循环">
+                    <i class="iconfont icon-arrow-right"></i>
+                </a>
                 <a title="下载" href="song/曹格 - 背叛.mp3" download class="download">
                     <i class="iconfont icon-dibu"></i>
                 </a>
                 <a title="添加" href="javascript:void(0)">
                     <i class="iconfont icon-zengjia"></i>
                 </a>
-                <a title="分享" href="javascript:void(0)">
-                    <i class="iconfont icon-fenxiang"></i>
+                <a title="顺序播放" href="javascript:void(0)" class="random_play">
+                    <i class="iconfont icon-shunxuxunhuan"></i>
                 </a>
             </div>
             <div class="bottom">
