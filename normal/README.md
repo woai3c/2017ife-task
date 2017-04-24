@@ -1,130 +1,14 @@
-1 自定义checkbox， radio样式  
-任务目的  
-深入了解html label标签  
-了解CSS边框、背景、伪元素、伪类（注意和伪元素区分）等属性的设置  
-了解CSS中常见的雪碧图，并能自己制作使用雪碧图  
-任务描述  
-参考 样例（点击查看），实现页面开发，要求实现效果基本一致  
-任务注意事项  
-尝试背景图和伪元素两种不同方式实现，对比两种方式各自的优缺点。  
-注意测试不同情况，尤其是极端情况下的效果。  
-<br><br><br><br><br>
-2 自定义网页右键菜单  
-任务目的  
-了解js中的oncontextmenu事件  
-了解如何获取鼠标位置  
-了解如何实现页面屏蔽右键菜单  
-任务描述  
-实现鼠标右击时，出现自定义菜单。点击非自定义菜单区域时，隐藏自定义菜单。参考样例（点击查看），实现页面开发，要求实现效果基本一致。  
-点击自定义菜单条目时，弹出菜单条目名称。  
-任务注意事项  
-自定义菜单出现在鼠标指针右下方，当右边区域不够大，展示在左下方，同理，当下方区域不够时，展示在鼠标指针上方  
-注意测试不同情况，尤其是极端情况下的效果  
-尽量不要使用第三方库，包括jQuery  
-<br><br><br><br><br>
-3 正则表达式之入门  
-任务目的  
-掌握JavaScript正则表达式编写规则  
-了解JavaScript中的正则表达式的特殊字符  
-了解JavaScript提供的正则表达式相关方法  
-能用正则表达式做一些简单文本或者数字校验  
-任务描述  
-编写一个判断给定数字是否为手机号码的正则表达式，测试用例参照但不限于：  
-18812011232  // 测试结果应该为 true  
-18812312     // false  
-12345678909  // false  
-编写一个判断输入的字符串是否有相邻重复单词的正则表达式，测试用例可以参考但不限于：  
-foo foo bar       // true  
-foo bar foo       // false  有重复单词但是不相邻  
-foo  barbar bar   // false  
-任务注意事项  
-完成任务之后，可以对比别人的实现方案，但不建议未尝试就直接搜索答案  
-在正则表达式的世界中，一个问题往往不止一种方案，可以尝试多种方法  
-<br><br><br><br><br>
+1 自定义checkbox， radio样式 <br>
+http://ife.baidu.com/course/detail/id/23<br>
+2 自定义网页右键菜单<br>
+http://ife.baidu.com/course/detail/id/26<br>
+3 正则表达式之入门<br>
+http://ife.baidu.com/course/detail/id/29<br>
 4 网页抓取分析服务系列之一（基础分析）<br>
-任务目的<br>
-体会数据的封装<br>
-快速学习新工具的的能力<br>
-熟悉phantomjs的基础用法<br>
-任务描述<br>
-安装phantomjs2.0，并查看webpage相关的API http://phantomjs.org/api/webpage/。<br>
-编写一个task.js脚本，参考官网的includeJs方法，实现根据传入的参数（关键字），抓取百度第一页对应该关键字的搜索结果。<br>
-将结果输出为json string回显。<br>
-回显的格式为<br>
-   {<br>
-       code: 1, //返回状态码，1为成功，0为失败<br>
-       msg: '抓取成功', //返回的信息<br>
-       word: '示例关键字', //抓取的关键字<br>
-       time: 2000, //任务的时间<br>
-       dataList:[   //抓取结果列表<br>
-           {<br>
-               title: 'xx',  //结果条目的标题<br>
-               info: ‘’, //摘要<br>
-               link: ‘’, //链接            <br>
-               pic: '' //缩略图地址<br>
-               }<br>
-       ]<br>
-   }<br>
-任务注意事项<br>
-多查API，学以致用<br>
-对于抓取的异常情况及时捕获并处理<br>
-结果中非自然结果的部分抛弃掉（广告、阿拉丁等），提前人工查看一下搜索结果，大多信息格式一致的都是自然结果，观察自然结果的class和相关结构特征。<br>
-<br><br><br><br><br>
+http://ife.baidu.com/course/detail/id/85<br>
 5 网页抓取分析服务系列之二（设备模拟）<br>
-任务目的<br>
-学会分析并借鉴其他工具的运行机制<br>
-学习更多phatomJS的配置<br>
-任务描述<br>
-观察chrome开发者工具中device toolbar，切换到不同的device，查看浏览器BOM数据有何变化<br>
-把device toolbar中不同的device名对应的ua和尺寸信息记录下来，保存为配置文件<br>
-在任务1的基础上，增加一个参数，表示device信息，taskjs中，解析该参数并从配置文件找到对应的ua和尺寸，完成设置后再抓取<br>
-在结果中也增加一个device字段保存传入的设备名<br>
-任务注意事项<br>
-chrome device toolbar不了解可以百度一下看看使用方法，在console中打印对应BOM信息查看<br>
-抽取的配置文件选三个就好：iphone5、iphone6、ipad<br>
-API提示：system.args、page.settings['userAgent']、page.viewportSize、page.clipRect<br>
-<br><br><br><br><br>
-6 ECharts & WebVR 学院 之 WebGL 方向
-在 WebGL 方向的教学过程中，你将了解到 WebGL 的一些基本原理，并且基于 Three.js 动手实现三维渲染的世界。
-
-我们将以《Three.js 入门指南》作为主要参考教程，在此基础之上，也会补充其他的学习资料，指导大家从零基础掌握前端 3D 渲染相关知识。对于有一定图形学基础的同学，可以直接从进阶部分开始学习诸如动画、模型、光影、着色器等话题。
-
-每一题需要提供可运行的网页链接和源码链接。
-
-本方向的 QQ 群号：383578356
-
-储备知识
-需要对 JavaScript 比较了解；
-无需了解图形学相关知识。
-任务目的
-
-在这一题中，你需要了解在网页中实现三维渲染的相关知识（涉及到 WebGL 和 Three.js 等），并且使用 Three.js 完成你的第一个作品。
-
-任务描述
-
-学习《Three.js 入门指南》第 1 至 3 章；
-了解 WebGL 与 Three.js 的概念；
-掌握 Three.js 的基本知识；
-理解照相机概念及设置方式；
-学会创建基本形状，并将其添加到场景中；
-配置好 Three.js 环境，运行书中的代码；
-实现一个简单的小车模型，下图效果仅作为参考，可以根据自己掌握程度和创意实现类似的效果；
-在学习光影前，如果你创建的模型看起来是纯色，这完全是可以接受的；
-考虑如何用简单几何形状的组合，创造看起来更逼真的车；
-想一下，如果不用 Three.js，只使用 WebGL API 的话，实现这样的场景大概需要写哪些代码。
-<br><br><br><br><br>
-7  ECharts NO.1 - 零基础绘制ECharts图表
-任务目的
-
-了解基础的 ECharts 用法
-了解基础的前端页面编写
-任务描述
-
-参考 ECharts 基础教程 编写一个简单的包含 ECharts 柱状图和折线图的展示页面
-任务注意事项
-
-作品需要在一个直角坐标系上同时显示折线图和柱状图
-可以使用自己收集的数据
-参考资料
-
-可以参考echarts的官方示例
+http://ife.baidu.com/course/detail/id/86<br>
+6 WebGL No.1 - Three.js 入门<br>
+http://ife.baidu.com/course/detail/id/18<br>
+7 ECharts NO.1 - 零基础绘制ECharts图表<br>
+http://ife.baidu.com/course/detail/id/42<br>
