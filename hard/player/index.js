@@ -31,9 +31,9 @@ Player.prototype = {
     SetImgRotate: function() {
         clearInterval(this.imgtimer);
         this.imgtimer = setInterval(() => {
-            this.deg++;
+            this.deg += 0.5;
             this.img.style.transform = 'rotate(' + this.deg + 'deg)';
-        }, 100);
+        }, 50);
         this.clickNextMusic();
         this.someClickEvent();
         this.audio.addEventListener('canplay', this.displayBar.bind(this)); // 音频加载完成事件
@@ -47,10 +47,12 @@ Player.prototype = {
             } else {
                 index = ++index % this.musicArry.length;
             }
+            this.audio.currentTime = 0; // 播放时间归零
+            $('.prrogress_bar').style.width = 0; // 播放进度归零
+            $('.bar_circle').style.left = 0; 
+            $('.display_end_time').innerHTML = '/00:00';
+            $('.display_cur_time').innerHTML = '00:00';
             this.init(index);
-            this.audio.autoplay = true;
-            $('.love_icon').title = '暂停';
-            $('.isplay i').className = 'iconfont icon-zanting';
         }
     },
     someClickEvent: function() {
@@ -184,6 +186,10 @@ Player.prototype = {
         var s; // 秒
         var width; // 当前播放时间/总时间的百分比
         endTimeSpan.innerHTML = '/' + endM + ':' + endS;
+        this.audio.autoplay = true;
+        this.audio.play();
+        $('.love_icon').title = '暂停';
+        $('.isplay i').className = 'iconfont icon-zanting';
         audio.onended = function() { // 歌曲结束触发下一首
             clearInterval(this.bartimer);
             if (this.loop) {
