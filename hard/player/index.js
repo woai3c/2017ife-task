@@ -53,6 +53,9 @@ Player.prototype = {
             $('.display_end_time').innerHTML = '/00:00';
             $('.display_cur_time').innerHTML = '00:00';
             this.init(index);
+            this.audio.autoplay = true;
+            $('.love_icon').title = '暂停';
+            $('.isplay i').className = 'iconfont icon-zanting';
         }
     },
     someClickEvent: function() {
@@ -186,10 +189,6 @@ Player.prototype = {
         var s; // 秒
         var width; // 当前播放时间/总时间的百分比
         endTimeSpan.innerHTML = '/' + endM + ':' + endS;
-        this.audio.autoplay = true;
-        this.audio.play();
-        $('.love_icon').title = '暂停';
-        $('.isplay i').className = 'iconfont icon-zanting';
         audio.onended = function() { // 歌曲结束触发下一首
             clearInterval(this.bartimer);
             if (this.loop) {
