@@ -14,6 +14,7 @@ function Player(musicArry) {
     this.bartimer; // 进度条定时器
     this.audio.volume = 0.5;
     this.random = false; // 是否随机播放
+    this.someClickEvent();
 }
 
 Player.prototype = {
@@ -35,7 +36,6 @@ Player.prototype = {
             this.img.style.transform = 'rotate(' + this.deg + 'deg)';
         }, 50);
         this.clickNextMusic();
-        this.someClickEvent();
         this.audio.addEventListener('canplay', this.displayBar.bind(this)); // 音频加载完成事件
     },
     clickNextMusic: function() {
@@ -53,9 +53,9 @@ Player.prototype = {
             $('.display_end_time').innerHTML = '/00:00';
             $('.display_cur_time').innerHTML = '00:00';
             this.init(index);
-            this.audio.autoplay = true;
-            $('.love_icon').title = '暂停';
-            $('.isplay i').className = 'iconfont icon-zanting';
+            if ($('.isplay').title != '播放') {
+                this.audio.play();
+            }
         }
     },
     someClickEvent: function() {
@@ -68,6 +68,7 @@ Player.prototype = {
         var horn_bar_bg = $('.horn_bar_bg'); // 喇叭进度条背景容器
         var horn_bar = $('.horn_bar'); // 喇叭进度条
         var horn_bar_container_two = $('.horn_bar_container_two'); // 喇叭进度条容器
+        var isplay_a = $('.isplay');
         var self = this;
         $('.icon-zengjia').onclick = function() { // 上传
             upload.click();
@@ -81,7 +82,7 @@ Player.prototype = {
                 this.title = '收藏';
             }
         }
-        $('.isplay').onclick = function() { // 播放 暂停
+        isplay_a.onclick = function() { // 播放 暂停
             if (isplay.className == 'iconfont icon-zanting') {
                 self.audio.pause();
                 this.title = '播放';
@@ -113,7 +114,9 @@ Player.prototype = {
             }    
             this.addEventListener('mousemove', move);
             document.addEventListener('mouseup', function() { // 鼠标弹起解除鼠标移动事件
-                self.audio.play();
+                if (isplay_a.title !== '播放') {
+                    self.audio.play();
+                }
                 this.removeEventListener('mousemove', move);
             }.bind(this)); 
         }
@@ -191,7 +194,7 @@ Player.prototype = {
         endTimeSpan.innerHTML = '/' + endM + ':' + endS;
         audio.onended = function() { // 歌曲结束触发下一首
             clearInterval(this.bartimer);
-            if (this.loop) {
+            if (this.loop) { // 循环播放则返回 
                 return;
             }
             $('.icon-jinrujiantou').click();
