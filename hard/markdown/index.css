@@ -1,0 +1,99 @@
+html,
+body {
+    height: 100%;
+    font-size: 0;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft yahei';
+}
+div,
+textarea {
+    box-sizing: border-box;
+    width: 50%;
+    border: 1px solid #e6e6e6;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+    background: #f5f5f5;
+    padding-left: 8px;
+    padding-top: 5px;
+    line-height: 20px;
+}
+textarea {
+    resize: none;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+}
+::-webkit-scrollbar{
+    width: 16px;
+    height: 16px;
+    background-color: #1e1e1e;
+}
+
+::-webkit-scrollbar-track{
+    border-radius: 10px;
+    background-color: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb{
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgba(170, 170, 170, 0.5);
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: #aaa;
+}
+
+pre,
+code {
+    background: #e6e6e6;
+    padding: 1px 5px;
+}
+pre {
+    margin: 10px 0;
+}
+blockquote {
+    padding: 0 1em;
+    color: #777;
+    border-left: 0.25em solid #ddd;
+}
+h1,
+h2 {
+    line-height: 30px;
+}
+hr {
+    border: none;
+    border-top: 3px solid #d3d3d3;
+    margin: 5px 0;
+}
+p {
+    margin: 5px 0;
+}
+li {
+    margin-left: 20px;
+}
+ul,
+ol {
+    margin: 10px 0;
+}
+table {
+    border-collapse: collapse;
+    text-align: center;
+    margin: 10px 0;
+}
+td,
+th {
+    border: 1px solid #e6e6e6;
+    padding: 10px;
+}
+div {
+    overflow: auto;
+}
