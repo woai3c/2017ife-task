@@ -24,4 +24,6 @@ http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/maste
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/hard/databind5.html<br>
 12: 音乐播放器<br>
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/hard/player/index.html<br>
+13: 正则表达式之简易markdown文件解析器<br>
+http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/hard/markdown/index.html<br>
 
