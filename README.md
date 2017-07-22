@@ -26,4 +26,16 @@ http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/maste
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/hard/player/index.html<br>
 13: 正则表达式之简易markdown文件解析器<br>
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/hard/markdown/index.html<br>
+14: WebGL No. 2 - 光与影<br>
+http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master/advanced/WebGL2.html<br>
+15: WebGL No. 3 - 材质与纹理<br>
+http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master/advanced/WebGL3/index.html<br>
+16: WebGL No. 4 - 照相机和交互控制<br>
+http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master/advanced/WebGL4/index.html<br>
+17: WebGL No.5 - 动画<br>
+http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master/advanced/WebGL5/index.html<br>
+18: ECharts NO.2 - 实现自定义的统计图表<br>
+http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master/advanced/echarts2/index.html<br>
+19: ECharts NO.3 - 绘制地图<br>
+http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master/advanced/echarts3/index.html<br>
 
