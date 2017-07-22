@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WebGL No. 3 - 材质与纹理</title>
+    <script src="three.js"></script>
+</head>
+<body>
+    <canvas id="myCanvas" width="800px" height="600px"></canvas>
+<script>
+    var renderer = new THREE.WebGLRenderer({
+      canvas: document.getElementById("myCanvas"),
+      antialias: true,        //开启消除锯齿,默认false
+      precision: "highp"      //渲染精度highp/mediump/lowp
+    });
+    renderer.setClearColor(0x000000);
+    renderer.shadowMapEnabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap; //开启阴影柔滑
+    renderer.setPixelRatio(window.devicePixelRatio); // 防止形变
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(45, 4/3, 1, 10);
+    camera.position.set(4, 3, 5);
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
+    scene.add(camera);
+
+    //texture
+    textureLoader = new THREE.TextureLoader(); //设置贴图
+
+    //multiMaterial for cube (right,left,top,bottom,back,front)
+    cubeMaterials = [];
+    for (i = 0; i < 6; i += 1) {
+        cubeMaterials.push(new THREE.MeshPhongMaterial({
+            color: 0xffffff,
+            map: textureLoader.load('img/' + (i + 1) + '.jpg', function() {
+                renderer.render(scene, camera);
+            }),
+            overdraw: true
+        }));
+    }
+
+    //cube
+    cube = new THREE.Mesh(new THREE.BoxGeometry(4, 2, 2), new THREE.MultiMaterial(cubeMaterials));
+    cube.position.set(0, 0, 0);
+    cube.castShadow = true;
+    scene.add(cube);
+
+    var texture = THREE.ImageUtils.loadTexture('img/plane.jpg', {}, function() {
+        renderer.render(scene, camera);
+    });
+    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set(6, 6);
+    var plane = new THREE.Mesh(new THREE.PlaneGeometry(20, 20, 20, 20),
+            new THREE.MeshLambertMaterial({
+                color: 0xffffff,
+                map: texture
+            }));
+    plane.rotation.x = -Math.PI / 2;
+    plane.position.y = -1.5;
+    plane.receiveShadow = true;     //开启接受阴影
+    scene.add(plane);
+
+
+    var light = new THREE.DirectionalLight();
+    light.position.set(2, 5, 3);
+    scene.add(light);
+
+    var texture = THREE.ImageUtils.loadTexture('img/wheel.jpg', {}, function() {
+        renderer.render(scene, camera);
+    });
+    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set(2, 2);
+    var torus, 
+        torusList = [];
+    for (var i = 0; i < 4; i++) {
+      torus = new THREE.Mesh(new THREE.TorusGeometry(0.4, 0.15, 12, 18),
+        new THREE.MeshLambertMaterial({
+          color: 0xffffff,
+          map: texture
+        })
+      )
+      torusList.push(torus);
+      scene.add(torus);
+    }
+    torusList[0].position.set(-1, -1, 1);
+    torusList[1].position.set(-1, -1, -1);
+    torusList[2].position.set(1, -1, 1);
+    torusList[3].position.set(1, -1, -1);
+
+
+    var lig = new THREE.SpotLight(0xffffff, 1, 100, Math.PI / 6, 25);
+    lig.position.set(1, 5, 3);
+    lig.target = cube;
+    lig.castShadow = true;
+
+    lig.shadowCameraNear = 2;
+    lig.shadowCameraFar = 10;
+    lig.shadowCameraFov = 30;
+    lig.shadowCameraVisible = true;
+
+    lig.shadowMapWidth = 1024;
+    lig.shadowMapHeight = 1024;
+    lig.shadowDarkness = 0.3;
+
+    scene.add(lig);
+
+    renderer.render(scene, camera);
+</script>
+</body>
+</html>

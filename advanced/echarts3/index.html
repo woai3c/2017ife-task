@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ECharts NO.3 - 绘制地图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+    <script src="../../echarts.js"></script>
+    <script src="world.js"></script>
+    <script>
+        var main = document.getElementById('main');
+        main.style.width = window.screen.width + 'px';
+        main.style.height = window.screen.height - 200 + 'px';
+
+        var chart = echarts.init(main);
+        chart.setOption({
+            series: [{
+                type: 'map',
+                map: 'world'
+            }]
+        });    
+    </script>
+</body>
+</html>

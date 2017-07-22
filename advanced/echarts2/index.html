@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ECharts NO.2 - 实现自定义的统计图表</title>
+</head>
+<body>
+    <div id="main" style="width: 800px; height: 600px;"></div>
+    <script src="../../echarts.js"></script>
+    <script>
+        (function () {
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init($('#main'));
+
+            // 指定图表的配置项和数据
+            var option = {
+                color: ['gray', 'orange'],
+                title: {
+                    itemGap: -5,
+                    text: '世界人口总量',
+                    subtext: '数据来自网络',
+                    left: 'center',
+                    textStyle: {
+                        color: 'red'
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                legend: {
+                    data: [{
+                        name: '2011年',
+                        icon: 'circle',
+                        textStyle: {
+                            color: 'red'
+                        },
+                    },
+                        {
+                            name: '2012年',
+                            icon: 'circle',
+                            textStyle: {
+                                color: 'green'
+                            }
+                        }
+                    ],
+                    left: 'left'
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    boundaryGap: [0, 0.01],
+                    nameTextStyle: {
+                        color: 'blue'
+                    }
+                },
+                yAxis: {
+                    type: 'category',
+                    data: ['巴西','印尼','美国','印度','中国','世界人口(万)']
+                },
+                series: [
+                    {
+                        name: '2011年',
+                        type: 'bar',
+                        data: [18203, 23489, 29034, 104970, 131744, 630230]
+                    },
+                    {
+                        name: '2012年',
+                        type: 'bar',
+                        data: [19325, 23438, 31000, 121594, 134141, 681807]
+                    }
+                ]   
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+
+        })();
+
+        function $(selector) {
+            return document.querySelector(selector);
+        }
+    </script>
+</body>
+</html>
