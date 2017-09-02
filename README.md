@@ -38,4 +38,8 @@ http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master
 http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master/advanced/echarts2/index.html<br>
 19: ECharts NO.3 - 绘制地图<br>
 http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master/advanced/echarts3/index.html<br>
+20: 贪吃蛇<br>
+http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/hard/snake/index.html<br>
+21: 虚拟画笔<br>
+http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/hard/drawing/index.html<br>
 
