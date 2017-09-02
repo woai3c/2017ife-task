@@ -10,3 +10,7 @@ http://ife.baidu.com/course/detail/id/89<br>
 http://ife.baidu.com/course/detail/id/83<br>
 6 正则表达式之简易markdown文件解析器<br>
 http://ife.baidu.com/course/detail/id/30<br>
+7 贪吃蛇<br>
+http://ife.baidu.com/course/detail/id/31<br>
+8 虚拟画笔<br>
+http://ife.baidu.com/course/detail/id/69<br>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>贪吃蛇</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: auto;
+            position: relative;
+        }
+        table {
+            border-collapse: collapse;
+            border: 1px solid #e6e6e6;
+            margin: auto;
+        }
+        td {
+            height: 20px;
+            width: 20px;
+            border: 1px solid #e6e6e6;
+        }
+        td div {
+            width: 100%;
+            height: 100%;
+        }
+        button {
+            border: 1px solid #e6e6e6;
+            margin-bottom: 20px;
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+        }
+        .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .mask1 {
+            display: block;
+        }
+        .mask2 {
+            display: none;
+        }
+        .menu,
+        .warn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .prompt {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .food {
+            border-radius: 50%;
+        }
+        .warn {
+            width: 400px;
+            height: 220px;
+            background-color: #000;
+            border-radius: 10px;
+            text-align: center;
+            color: #fff;
+            font-size: 16px;
+        }
+        .warn p {
+            margin: 40px 0;
+            font-size: 30px;
+        }
+        .warn button {
+            width: 100px;
+            height: 40px;
+        }
+        .over {
+            display: none;
+        }
+        .over div {
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table>
+            
+        </table>
+        <div class="prompt">
+            <div class="score">
+                得分：<span>0</span>
+            </div>
+            <div class="level">
+                关卡：<span>1</span>
+            </div>
+            <div class="speed">
+                速度：<span>150</span>
+            </div>
+        </div>
+        <div class="mask mask1">
+            <div class="menu">
+                <button class="normal">普通模式</button><br>
+                <button class="pass">过关模式</button><br>
+                <button class="avoid">躲避模式</button><br>
+            </div>
+        </div>
+        <div class="mask mask2">
+            <div class="warn">
+
+            </div>
+        </div>
+        <div class="mask over">
+            <div>
+                <p>恭喜你通关了！</p><br>
+                <button>下一关</button>
+            </div>
+        </div>
+        <div class="parameter">
+            
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

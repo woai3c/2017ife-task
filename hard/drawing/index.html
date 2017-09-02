@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        canvas {
+            border: 1px solid #e6e6e6;
+        }
+        .sub {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="radio" name="tool" id="huabi" checked><label for="huabi">画笔</label>
+        <input type="radio" name="tool" id="shuazi"><label for="shuazi">刷子</label>
+        <input type="radio" name="tool" id="penqiang"><label for="penqiang">喷枪</label>
+        <input type="radio" name="tool" id="xiangpi"><label for="xiangpi">橡皮</label>
+        <div class="sub">
+            <select>
+                <option>rect</option>
+                <option>circle</option>
+            </select>
+            <label>大小(px)</label><input value = '10' class="size">               
+        </div>     
+    </div>
+    <canvas width = "800" height = "600"></canvas>
+    <script src="index.js"></script>
+</body>
+</html>
