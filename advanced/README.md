@@ -26,3 +26,5 @@ http://ife.baidu.com/course/detail/id/34<br>
 http://ife.baidu.com/course/detail/id/45<br>
 14 ECharts NO.3 - 绘制地图<br>
 http://ife.baidu.com/course/detail/id/54<br>
+15 UI组件之色彩选择器<br>
+http://ife.baidu.com/course/detail/id/16<br>
