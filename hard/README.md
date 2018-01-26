@@ -14,3 +14,5 @@ http://ife.baidu.com/course/detail/id/30<br>
 http://ife.baidu.com/course/detail/id/31<br>
 8 虚拟画笔<br>
 http://ife.baidu.com/course/detail/id/69<br>
+9 推箱子<br>
+http://ife.baidu.com/course/detail/id/66<br>

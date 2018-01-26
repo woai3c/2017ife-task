@@ -1,0 +1,41 @@
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+td {
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+}
+.wall {
+    background: url(img/wall.png);
+    background-size: 40px 40px;
+}
+
+.ground {
+    background: url(img/ground.png);
+    background-size: 40px 40px;
+}
+
+.man {
+    background: url(img/man.png);
+    background-size: 40px 40px;
+}
+
+.real {
+    background: url(img/real.png);
+    background-size: 40px 40px;
+}
+
+.target {
+    background: url(img/target.png);
+    background-size: 40px 40px;
+}
+
+.arrive {
+    background: url(img/arrive.png);
+    background-size: 40px 40px;
+}
+.prompt {
+    float: left;
+}zz
