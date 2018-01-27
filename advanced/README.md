@@ -28,3 +28,5 @@ http://ife.baidu.com/course/detail/id/45<br>
 http://ife.baidu.com/course/detail/id/54<br>
 15 UI组件之色彩选择器<br>
 http://ife.baidu.com/course/detail/id/16<br>
+16 UI组件之色彩选择器<br>
+http://ife.baidu.com/course/detail/id/17<br>
