@@ -42,6 +42,7 @@ http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/hard/snake/index.html<br>
 21: 虚拟画笔<br>
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/hard/drawing/index.html<br>
-22: 虚拟画笔<br>
-http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/hard/pushBox/index.html<br>
-
+22: UI组件之色彩选择器<br>
+http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master/advanced/colorpicker/index.html<br>
+23: 推箱子<br>
+http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master/hard/pushBox/index.html<br>
