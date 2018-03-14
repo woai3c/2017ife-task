@@ -1,0 +1,23 @@
+{
+  "name": "datagrab5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "async": "^2.6.0",
+    "koa": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^4.0.2",
+    "mongoose": "^5.0.10",
+    "phantom": "^4.0.12",
+    "phantom-pool": "^1.2.2",
+    "socket.io": "^2.0.4"
+  }
+}
