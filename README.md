@@ -47,4 +47,4 @@ http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master
 23: 推箱子<br>
 http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master/hard/pushBox/index.html<br>
 24: 标签云<br>
-http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master/advanced/tagCloud/index.html<br>
+http://htmlpreview.github.io/?https://github.com/woai3c/2017ife-task/blob/master/advanced/tagCloud/index.html<br><br>
