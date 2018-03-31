@@ -1,5 +1,7 @@
-                                    百度前端技术学院2017任务
-                                        
+# 百度前端技术学院2017任务
+## http://ife.baidu.com/course/all
+
+### 以下仅为部分任务展示 
 1:自定义input样式<br>
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/normal/checkStyle.html<br>
 2:自定义网页右键菜单<br>
