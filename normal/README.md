@@ -1,3 +1,5 @@
+## 2017年任务页面已被2018年任务页面覆盖 所以下面的链接已经失效 
+
 1 自定义checkbox， radio样式 <br>
 http://ife.baidu.com/course/detail/id/23<br>
 2 自定义网页右键菜单<br>
