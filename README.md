@@ -1,6 +1,9 @@
 # 百度前端技术学院2017任务
 由于百度前端技术学院2017年的任务页面被2018年的任务页面覆盖，2017年任务的介绍页面链接已经失效，因为被覆盖了！
 
+* [百度前端技术学院2016任务](http://ife.baidu.com/2016/task/all)
+* [百度前端技术学院2018任务](https://github.com/woai3c/2018ife-task)
+
 ### 以下仅为部分任务展示 
 1:自定义input样式<br>
 http://htmlpreview.github.com/?https://github.com/woai3c/2017ife-task/blob/master/normal/checkStyle.html<br>
