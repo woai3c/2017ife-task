@@ -3,7 +3,7 @@
 
 2016不受影响
 
-* [百度前端技术学院2016任务](http://ife.baidu.com/2016/task/all)
+* [百度前端技术学院2016任务](https://github.com/woai3c/2016ife-task)
 * [百度前端技术学院2018任务](https://github.com/woai3c/2018ife-task)
 
 ### 以下仅为部分任务展示 
