@@ -1,12 +1,15 @@
-function $(selector) { // 将原生方法抽象一下
+// 将原生方法抽象一下
+function $(selector) { 
     return document.querySelector(selector);
 }
 
-function $$(selector) { // 将原生方法抽象一下
+// 将原生方法抽象一下
+function $$(selector) { 
     return document.getElementById(selector);
 }
 
-function main() { // 主函数
+// 主函数
+function main() { 
     initMap(gameData[0]); // 初始化第一关数据
 
     var select = $('select');
@@ -17,7 +20,8 @@ function main() { // 主函数
 
     select.innerHTML = html;
 
-    select.onchange = function(event) { // 选择关卡
+    // 选择关卡
+    select.onchange = function(event) { 
         initMap(gameData[parseInt(this.value.substring(1, 3)) - 1])
         $('.level').innerHTML = 'level <span>' + (parseInt(this.value.substring(1, 3))) + '</span>';
         this.blur();
@@ -30,7 +34,8 @@ function main() { // 主函数
     keyEvent();
 }
 
-function initMap(data) { // 画图
+// 画图
+function initMap(data) { 
     var html = '';
     for (var i = 0; i < data.size.height; i++) {
         html += '<tr>';
@@ -43,7 +48,8 @@ function initMap(data) { // 画图
     setMapClass(data.map);
 }
 
-function setMapClass(data) { // 给每一个格子赋上一个类名
+// 给每一个格子赋上一个类名
+function setMapClass(data) { 
     keys = {
          5: "wall", // 墙
         10: "ground", // 地板
@@ -60,7 +66,8 @@ function setMapClass(data) { // 给每一个格子赋上一个类名
     });
 }
 
-function keyEvent() { // 监控键盘事件
+// 监控键盘事件
+function keyEvent() { 
     document.onkeydown = function(event) {
         var cur = $('.man').id.split('_');
         var row = cur[0];
@@ -68,19 +75,22 @@ function keyEvent() { // 监控键盘事件
         var rows = $('table').rows.length
         var cols = $('table').rows[0].cells.length
         var direction;
-        switch(event.keyCode) {
-            case 37: // 左 
+        switch (event.keyCode) {
+            case 37: // 左
+                 
                 direction = 'l';
                 col--;
                 if (col < 0 || $$(row + '_' + col).className == 'wall') {
                     return;
                 } else if ($$(row + '_' + col).className == 'real' || $$(row + '_' + col).className == 'arrive') {
                     col--;
-                    if (col < 0 || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive' || $$(row + '_' + col).className == 'box') {
+                    if (col < 0 || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive' || $$(row + '_' + col).className == 'real') {
                         return;
                     }
+                     
                     col++;
                 }
+                 
                 break;
             case 38: // 上
                 direction = 'u';
@@ -89,7 +99,7 @@ function keyEvent() { // 监控键盘事件
                     return;
                 } else if ($$(row + '_' + col).className == 'real' || $$(row + '_' + col).className == 'arrive') {
                     row--;
-                    if (row < 0 || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive' || $$(row + '_' + col).className == 'box') {
+                    if (row < 0 || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive' || $$(row + '_' + col).className == 'real') {
                         return;
                     }
                     row++;
@@ -102,7 +112,7 @@ function keyEvent() { // 监控键盘事件
                     return;
                 } else if ($$(row + '_' + col).className == 'real' || $$(row + '_' + col).className == 'arrive') {
                     col++;
-                    if (col >= cols || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive' || $$(row + '_' + col).className == 'box') {
+                    if (col >= cols || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive' || $$(row + '_' + col).className == 'real') {
                         return;
                     }
                     col--;
@@ -115,20 +125,20 @@ function keyEvent() { // 监控键盘事件
                     return;
                 } else if ($$(row + '_' + col).className == 'real' || $$(row + '_' + col).className == 'arrive') {
                     row++;
-                    if (row >= rows || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive' || $$(row + '_' + col).className == 'box') {
+                    if (row >= rows || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive' || $$(row + '_' + col).className == 'real') {
                         return;
                     }
                     row--;
                 }
                 break;
-            default:
-                break;
         }
+         
         move(cur, [row, col], direction);
     }
 }
 
-function move(cur, next, direction) { // cur当前点 next下一点 direction代表移动方向
+// cur当前点 next下一点 direction代表移动方向
+function move(cur, next, direction) { 
     var row = next[0];
     var col = next[1];
     if ($$(cur[0] + '_' + cur[1]).dataset.class == 'target') {
@@ -136,10 +146,11 @@ function move(cur, next, direction) { // cur当前点 next下一点 direction代
     } else {
         $$(cur[0] + '_' + cur[1]).className = 'ground';
     }
+
     if ($$(next[0] + '_' + next[1]).className == 'ground' || $$(next[0] + '_' + next[1]).className == 'target') {
         $$(next[0] + '_' + next[1]).className = 'man';
     } else {
-        switch(direction) {
+        switch (direction) {
             case 'u':
                 row--;
                 break;
@@ -153,6 +164,7 @@ function move(cur, next, direction) { // cur当前点 next下一点 direction代
                 col--;
                 break;
         }
+
         if ($$(row + '_' + col).className == 'ground') {
             $$(row + '_' + col).className = 'real';
             $$(next[0] + '_' + next[1]).className = 'man';
