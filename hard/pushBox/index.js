@@ -76,7 +76,7 @@ function keyEvent() { // 监控键盘事件
                     return;
                 } else if ($$(row + '_' + col).className == 'real' || $$(row + '_' + col).className == 'arrive') {
                     col--;
-                    if (col < 0 || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive') {
+                    if (col < 0 || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive' || $$(row + '_' + col).className == 'box') {
                         return;
                     }
                     col++;
@@ -89,7 +89,7 @@ function keyEvent() { // 监控键盘事件
                     return;
                 } else if ($$(row + '_' + col).className == 'real' || $$(row + '_' + col).className == 'arrive') {
                     row--;
-                    if (row < 0 || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive') {
+                    if (row < 0 || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive' || $$(row + '_' + col).className == 'box') {
                         return;
                     }
                     row++;
@@ -102,7 +102,7 @@ function keyEvent() { // 监控键盘事件
                     return;
                 } else if ($$(row + '_' + col).className == 'real' || $$(row + '_' + col).className == 'arrive') {
                     col++;
-                    if (col >= cols || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive') {
+                    if (col >= cols || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive' || $$(row + '_' + col).className == 'box') {
                         return;
                     }
                     col--;
@@ -115,7 +115,7 @@ function keyEvent() { // 监控键盘事件
                     return;
                 } else if ($$(row + '_' + col).className == 'real' || $$(row + '_' + col).className == 'arrive') {
                     row++;
-                    if (row >= rows || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive') {
+                    if (row >= rows || $$(row + '_' + col).className == 'wall' || $$(row + '_' + col).className == 'arrive' || $$(row + '_' + col).className == 'box') {
                         return;
                     }
                     row--;
